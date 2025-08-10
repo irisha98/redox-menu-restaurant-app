@@ -1,38 +1,205 @@
-.App {
+body {
+  font-family: 'Georgia', serif;
+  background-color: #fdf6ee;
+  color: #3e2c1c; 
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 1px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a {
+  color: #8b5c2b;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dish-card {
+  background: #fff8f0;
+  border: 2px solid #d4b58a;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.dish-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.dish-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 2px solid #d4b58a;
+}
+
+.dish-buttons {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+
+button {
+  background: #8b5c2b;
+  color: #fff8f0;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #a76b3f;
+}
+
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.categories button {
+  background: #e5d4c1;
+  color: #3e2c1c;
+}
+
+.categories button:hover {
+  background: #d4b58a;
+}
+
+.categoryButtonSelected{
+  background-color: #48a94c;
+  border-radius: 50px;
+}
+
+.categoryButton{
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px;
+}
+
+.categoryButton:hover{
+  background-color: rgb(251, 251, 104);
+  border-radius: 50px;
+}
+
+.quantity-controls {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.quantity-controls p {
+  margin: 0;
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.quantity-controls button {
+  width: 32px;
+  height: 32px;
+  background-color: #8a5a2d;
   color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.cart-icon-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background-color: #fff5e9;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart-icon-wrapper {
+  top: 20px;
+  right: 20px;
+  background: #fff5e5;
+  padding: 10px 14px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  display: flex;  
+  cursor: pointer;
 }
+
+.cart-image {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
+.cart-total {
+  font-weight: bold;
+  color: #3c1e00;
+  font-size: 16px;
+}
+.cart-details {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: #fffaf2;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  max-height: 400px;       
+  overflow-y: auto;         
+  width: 300px;
+  z-index: 99;
+}
+
+.add-btn{
+  background:#8b5c2b;
+  color:#fff8f0;
+  border:none;
+  border-radius:8px;
+  padding:10px 16px;
+  cursor:pointer;
+  transition:2s, transform .1s;
+}
+.add-btn:hover{ background:#a76b3f; }
+.add-btn:active{ transform:scale(.98); }
+.add-btn.in-cart{
+  background:#2f7d32;
+}
+
